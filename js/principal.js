@@ -1,4 +1,6 @@
 
+<script src="../js/principal.js"></script>
+
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const R = n => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const wa = t => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(t)}`;
