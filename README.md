@@ -1,25 +1,12 @@
-# Doce Lembrança Personalizados — loja de ímãs (demonstrativa)
-Site estático (HTML, CSS e JavaScript). Pedido finalizado pelo WhatsApp, carrinho salvo no navegador.
+# Doce Lembrança Personalizados — loja de ímãs
+Site estático (HTML, CSS, JS). Carrinho salvo no navegador; pedido finalizado pelo WhatsApp.
 
-## Rodar no VS Code
-1. Abra a pasta no VS Code (Arquivo > Abrir Pasta).
-2. Instale a extensão **Live Server** (Ritwick Dey).
-3. Clique com o botão direito em `index.html` > **Open with Live Server**.
+## Estrutura (tudo na raiz do repositório)
+index.html, produtos.html, carrinho.html, clientes.html, 404.html, css/style.css, js/config.js, js/principal.js, js/produtos.js, js/carrinho.js
 
-## Trocar os dados fictícios — `js/config.js`
-- `CONFIG.whatsapp`: só dígitos, com país + DDD (ex.: `5581988887777`)
-- `CONFIG.instagram`, `email`, `telefone`, `local`, `nome`
-- `LISTA`: produtos, códigos e preços (não altere códigos existentes; novos: IM026, IM027…). `CATEGORIAS`: categorias.
-- Fotos reais: salve em `assets/imagens/` e coloque o caminho como último item do produto/galeria (somente fotos autorizadas).
-- Textos de "Quem Somos", depoimentos e perguntas frequentes: `index.html`.
+## Dados da empresa: js/config.js
+WhatsApp (só dígitos, país + DDD), Instagram, e-mail, telefone, produtos e preços (LISTA). Não mude códigos existentes; novos: IM026, IM027…
+Fotos reais: salve em assets/imagens/ e informe o caminho como último item do produto (ou da galeria).
 
-## Publicar no GitHub Pages
-```
-git init
-git add .
-git commit -m "Site Doce Lembrança"
-git branch -M main
-git remote add origin https://github.com/SEU_USUARIO/doce-lembranca.git
-git push -u origin main
-```
-No repositório: Settings > Pages > Source: *Deploy from a branch* > `main` / `(root)` > Save.
+## Publicar
+GitHub > Settings > Pages > Deploy from a branch > main / (root).
