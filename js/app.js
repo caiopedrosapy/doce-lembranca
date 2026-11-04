@@ -1,11 +1,11 @@
-
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const R = n => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const wa = t => `https://wa.me/${CONFIG.whatsapp}` + (t ? '?text=' + encodeURIComponent(t) : '');
 const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-const PRODUTOS = PRODUTOS_LISTA.map((p, i) => ({ ...p, preco: +p.preco || 0, img: p.img || ilustra(p.emoji || '🎁', i) }));
+const PRODUTOS = PRODUTOS_LISTA.map((p, i) => ({ ...p, preco: +p.preco || 0, i }));
+const imgP = p => tagImg(p, p.i, 100 + p.i, esc(p.nome));
 
 /* ===== Carrinho ===== */
 const CK = 'dl_cart_v2';
@@ -17,7 +17,7 @@ const totais = () => itens().reduce((t, { p, q }) => ({ un: t.un + q, val: t.val
 function desenhaCarrinho() {
   const it = itens(), t = totais();
   $$('.cart-count').forEach(e => e.textContent = t.un);
-  $('#itens').innerHTML = it.length ? it.map(({ p, q }) => `<div class="item"><img src="${p.img}" alt=""><div class="info"><span class="cod">${esc(p.codigo)}</span><b>${esc(p.nome)}</b><small>${p.preco ? R(p.preco) + ' un.' : 'Valor a combinar'}</small></div>
+  $('#itens').innerHTML = it.length ? it.map(({ p, q }) => `<div class="item">${imgP(p)}<div class="info"><span class="cod">${esc(p.codigo)}</span><b>${esc(p.nome)}</b><small>${p.preco ? R(p.preco) + ' un.' : 'Valor a combinar'}</small></div>
     <div class="qtd"><button data-m="${esc(p.codigo)}" aria-label="Diminuir">−</button><b>${q}</b><button data-p="${esc(p.codigo)}" aria-label="Aumentar">+</button></div>
     <button class="rem" data-r="${esc(p.codigo)}" aria-label="Remover"><i class="fa-solid fa-trash"></i></button></div>`).join('')
     : `<div class="vazio"><i class="fa-solid fa-basket-shopping"></i><h3>Seu carrinho está vazio</h3><p>Escolha seus ímãs favoritos!</p><button class="btn" data-fechar>Ver produtos</button></div>`;
@@ -38,7 +38,7 @@ function toast(msg) {
 const abre = v => document.body.classList.toggle('aberto', v);
 
 /* ===== Páginas ===== */
-const card = p => `<article class="card"><div class="ph"><img src="${p.img}" alt="${esc(p.nome)}" loading="lazy"></div><div class="cb"><span class="cod">${esc(p.codigo)}</span><h3>${esc(p.nome)}</h3><p>${esc(p.desc || '')}</p>
+const card = p => `<article class="card"><div class="ph">${imgP(p)}</div><div class="cb"><span class="cod">${esc(p.codigo)}</span><h3>${esc(p.nome)}</h3><p>${esc(p.desc || '')}</p>
  <strong class="pr">${p.preco ? R(p.preco) + ' <em>por unidade</em>' : '<em>Valor a combinar</em>'}</strong>
  <div class="buy"><input type="number" min="1" max="999" value="1" aria-label="Quantidade"><button class="btn" data-add="${esc(p.codigo)}"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div></div></article>`;
 function lista() {
@@ -70,8 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
   $$('[data-tel]').forEach(e => e.textContent = CONFIG.telefone); $$('[data-local]').forEach(e => e.textContent = CONFIG.local);
   $$('[data-ig]').forEach(a => { a.href = CONFIG.instagram; a.target = '_blank'; a.rel = 'noopener'; });
   $$('[data-wa]').forEach(a => { a.href = wa('Olá! Conheci a ' + CONFIG.nome + ' pelo site e gostaria de saber mais sobre os produtos.'); a.target = '_blank'; a.rel = 'noopener'; });
-  $('#f1').src = ilustra('💌', 0); $('#f2').src = ilustra('📸', 1); $('#f3').src = ilustra('❤️', 2);
-  $('#vit').innerHTML = MODELOS.map((m, i) => `<figure class="v"><img src="${m.img || ilustra(m.emoji, i + 2)}" alt="${esc(m.nome)}" loading="lazy"><figcaption>${esc(m.nome)}</figcaption></figure>`).join('');
-  $('#feed').innerHTML = CLIENTES.map((c, i) => `<figure class="post"><img src="${c.img || ilustra(c.emoji, i + 1)}" alt="${esc(c.nome)}" loading="lazy"><figcaption><b>${esc(c.nome)}</b><span>${esc(c.legenda)}</span></figcaption></figure>`).join('');
+  $('#qimg').innerHTML = tagImg({ emoji: '💌', tags: 'gift,flowers' }, 0, 900, 'Ímãs personalizados');
+  $('#mapa').src = 'https://maps.google.com/maps?q=' + encodeURIComponent(CONFIG.mapa) + '&output=embed';
+  $('#abrirMapa').href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(CONFIG.mapa);
+  $('#vit').innerHTML = MODELOS.map((m, i) => `<figure class="v">${tagImg(m, i + 2, 200 + i, esc(m.nome))}<figcaption>${esc(m.nome)}</figcaption></figure>`).join('');
+  $('#feed').innerHTML = CLIENTES.map((c, i) => `<figure class="post">${tagImg(c, i + 1, 300 + i, esc(c.nome))}<figcaption><b>${esc(c.nome)}</b><span>${esc(c.legenda)}</span></figcaption></figure>`).join('');
   $('#busca').oninput = lista; lista(); desenhaCarrinho();
 });
