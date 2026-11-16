@@ -1,45 +1,140 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Doce Lembrança Personalizados | Ímãs personalizados</title>
-<meta name="description" content="Ímãs personalizados feitos com carinho. Escolha seus modelos e finalize o pedido pelo WhatsApp.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%9D%A4%EF%B8%8F%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="css/style.css"></head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doce Lembrança | Ímãs personalizados</title>
+<meta name="description" content="Ímãs personalizados feitos com carinho para eternizar seus momentos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
 <body>
-<header id="topo"><div class="wrap bar"><a href="#inicio" class="logo"><i class="fa-solid fa-heart"></i> <span data-nome></span></a>
-<nav id="menu"><a href="#inicio">Início</a><a href="#quem-somos">Quem Somos</a><a href="#produtos">Produtos</a><a href="#modelos">Modelos</a><a href="#clientes">Clientes</a><a href="#contato">Onde Estamos</a></nav>
-<div class="acoes"><button class="ic" id="bCarrinho" aria-label="Abrir carrinho"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count">0</span></button><button class="ic burger" id="bMenu" aria-label="Menu"><i class="fa-solid fa-bars"></i></button></div></div></header>
+
+<header>
+  <div class="container nav">
+    <a href="#inicio" class="logo">Doce <span>Lembrança</span></a>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <ul class="menu" id="menu">
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#quem-somos">Quem somos</a></li>
+      <li><a href="#imas">Ímãs personalizados</a></li>
+      <li><a href="#instagram">Instagram</a></li>
+      <li><a href="#whatsapp">WhatsApp</a></li>
+    </ul>
+  </div>
+</header>
+
 <main>
-<section id="inicio" class="intro"><div class="wrap"><h1>Doce Lembrança Personalizados</h1><p>Ímãs personalizados feitos com carinho para eternizar seus momentos especiais.</p><a class="btn branco" href="#produtos">Ver Produtos</a></div></section>
-<section id="quem-somos"><div class="wrap sobre"><div class="qimg" id="qimg"></div>
- <div><h2>QUEM SOMOS</h2>
- <!-- EDITE AQUI o texto "Quem Somos" -->
- <p>Somos uma empresa de ímãs personalizados que transforma fotos, nomes e datas especiais em lembranças delicadas. Cada peça é feita com carinho, do primeiro contato pelo WhatsApp até a entrega.</p>
- <p class="entrega"><i class="fa-solid fa-location-dot"></i> Entregamos em Palmares-PE.</p></div></div></section>
-<section id="produtos" class="rosa"><div class="wrap"><div class="tit"><h2>Nossos Produtos</h2><p>Escolha, ajuste a quantidade e adicione ao carrinho.</p></div>
-<div class="pesq"><i class="fa-solid fa-magnifying-glass"></i><input id="busca" placeholder="Pesquise por nome ou código (ex.: IM001)" aria-label="Pesquisar"></div>
-<div class="grade" id="grade"></div><div class="vazio" id="vazio" hidden><i class="fa-regular fa-face-sad-tear"></i><h3>Nenhum produto localizado</h3><p>Tente outro nome ou código.</p></div></div></section>
-<section id="modelos"><div class="wrap"><div class="tit"><h2>Nossos Modelos</h2><p>Alguns dos estilos que podemos criar para você.</p></div><div class="vit" id="vit"></div></div></section>
-<section class="rosa"><div class="wrap"><div class="tit"><h2>Por que escolher a gente</h2></div><div class="servs">
-<div><span>💝</span><h3>Feito com carinho</h3><p>Cada ímã é personalizado para você.</p></div>
-<div><span>🎉</span><h3>Todas as ocasiões</h3><p>Aniversário, casamento, batizado e mais.</p></div>
-<div><span>💬</span><h3>Pedido fácil</h3><p>Finalize direto pelo WhatsApp.</p></div>
-<div><span>🚚</span><h3>Entrega local</h3><p>Entregamos em Palmares-PE.</p></div></div></div></section>
-<section id="clientes"><div class="wrap"><div class="tit"><h2>Nossos Clientes</h2><p>Momentos que viraram lembranças.</p></div><div class="feed" id="feed"></div>
-<p class="centro"><a class="btn alt" data-ig href="#"><i class="fa-brands fa-instagram"></i> Veja mais no Instagram</a></p></div></section>
-<section id="contato" class="rosa"><div class="wrap"><div class="tit"><h2>Onde Estamos</h2><p>Venha conhecer nossa loja ou chame no WhatsApp.</p></div>
-<iframe id="mapa" class="mapa" title="Mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-<p class="centro"><a class="btn" id="abrirMapa" href="#" target="_blank" rel="noopener"><i class="fa-solid fa-map-location-dot"></i> Abrir no Google Maps</a></p></div></section>
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div>
+        <h1>Seus melhores momentos, na porta da geladeira.</h1>
+        <p>Criamos ímãs personalizados com suas fotos, frases e datas especiais. Cada peça é feita à mão, com cuidado e muito carinho.</p>
+        <a class="btn" href="#imas">Ver ímãs</a>
+      </div>
+      <div class="mural" aria-hidden="true">
+        <div class="imã i1">💍</div>
+        <div class="imã i2">🎂</div>
+        <div class="imã i3">👶</div>
+        <div class="imã i4">✈️</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos">
+    <div class="container">
+      <h2 class="titulo-secao">Serviços</h2>
+      <p class="sub-secao">Do pedido único às lembrancinhas em quantidade, a gente cuida de tudo.</p>
+      <div class="cards">
+        <article class="card"><div class="ico">📸</div><h3>Ímãs com foto</h3><p>Transformamos sua foto favorita em um ímã resistente e com acabamento brilhante.</p></article>
+        <article class="card"><div class="ico">🎉</div><h3>Lembrancinhas</h3><p>Casamentos, aniversários, batizados e chás de bebê com a identidade da sua festa.</p></article>
+        <article class="card"><div class="ico">🎁</div><h3>Presentes</h3><p>Kits e combinações prontas para presentear com afeto em qualquer data.</p></article>
+        <article class="card"><div class="ico">🏢</div><h3>Para empresas</h3><p>Brindes com a sua marca para clientes e eventos, em pequenas ou grandes tiragens.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="quem-somos">
+    <div class="container grade">
+      <div>
+        <h2 class="titulo-secao">Quem somos</h2>
+        <p>A Doce Lembrança nasceu da vontade de guardar o que importa. Acreditamos que um pequeno ímã pode trazer de volta um sorriso toda vez que você abre a geladeira.</p>
+        <p>Trabalhamos com materiais de qualidade e atendimento próximo: você conta a ideia, e a gente desenha, ajusta e entrega do jeito que imaginou.</p>
+        <div class="numeros">
+          <div><strong>100%</strong><span>feito à mão</span></div>
+          <div><strong>+500</strong><span>ímãs entregues</span></div>
+          <div><strong>Palmares-PE</strong><span>e região</span></div>
+        </div>
+      </div>
+      <!-- Troque o emoji por uma foto: <img src="foto-quem-somos.jpg" alt="Equipe Doce Lembrança"> -->
+      <div class="foto-nos" aria-hidden="true">🧲</div>
+    </div>
+  </section>
+
+  <section id="imas" class="imas">
+    <div class="fundos" id="fundos" aria-hidden="true"></div>
+    <div class="container">
+      <h2 class="titulo-secao">Ímãs personalizados</h2>
+      <p class="sub-secao">Arraste a estante, use as setas ou toque numa caixinha. Clique na capa para abrir e ver os detalhes.</p>
+
+      <div class="library" id="library">
+        <div class="shelf" id="shelf" tabindex="0" aria-label="Estante de ímãs. Use as setas para navegar e Enter para abrir a caixinha.">
+          <ul class="cases" id="cases"></ul>
+          <div class="mirror" aria-hidden="true"><ul class="cases reflect" id="reflect"></ul></div>
+          <button class="open-hit" id="openhit" tabindex="-1" aria-label="Abrir ou fechar a caixinha"></button>
+        </div>
+
+        <div class="titles" id="titles" aria-live="polite"></div>
+
+        <div class="controles">
+          <button class="seta" id="prev" aria-label="Ímã anterior">‹</button>
+          <span class="contador" id="contador">1 / 9</span>
+          <button class="seta" id="next" aria-label="Próximo ímã">›</button>
+        </div>
+        <div class="acoes">
+          <button class="seta texto" id="abrir">Ver por dentro</button>
+          <a class="btn" id="pedir" href="#" target="_blank" rel="noopener">Pedir este ímã</a>
+        </div>
+        <p class="dicas"><span class="kb"><kbd>←</kbd><kbd>→</kbd> navegar</span><span class="kb"><kbd>Enter</kbd> abrir ou fechar</span><span class="kb"><kbd>Esc</kbd> fechar</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="instagram" class="social">
+    <div class="container">
+      <!-- Coloque a foto do perfil como "perfil-instagram.jpg" na mesma pasta deste arquivo -->
+      <div class="perfil">
+        <img src="perfil-instagram.jpg" alt="Foto de perfil do Instagram @bolsa_macrame"
+             onerror="this.outerHTML='<div class=&quot;fallback&quot;>📷</div>'">
+      </div>
+      <h2 class="titulo-secao">Instagram</h2>
+      <p class="arroba">@bolsa_macrame</p>
+      <p class="desc">Acompanhe os bastidores, novidades e trabalhos entregues.</p>
+      <a class="btn" href="https://www.instagram.com/bolsa_macrame/" target="_blank" rel="noopener">Seguir no Instagram</a>
+    </div>
+  </section>
+
+  <section id="whatsapp" class="social">
+    <div class="container">
+      <!-- Coloque a foto como "perfil-whatsapp.jpg" na mesma pasta deste arquivo -->
+      <div class="perfil">
+        <img src="perfil-whatsapp.jpg" alt="Foto de perfil do WhatsApp da Doce Lembrança"
+             onerror="this.outerHTML='<div class=&quot;fallback&quot;>💬</div>'">
+      </div>
+      <h2 class="titulo-secao">WhatsApp</h2>
+      <p class="arroba">(81) 99833-4181</p>
+      <p class="desc">Conte sua ideia e peça seu orçamento. Respondemos rapidinho.</p>
+      <a class="btn" id="btn-zap" href="#" target="_blank" rel="noopener">Conversar no WhatsApp</a>
+    </div>
+  </section>
 </main>
-<footer><div class="wrap fgrid"><div><h3 data-nome></h3><p><i class="fa-solid fa-envelope"></i> <span data-email></span></p><p><i class="fa-solid fa-phone"></i> <span data-tel></span></p><p><i class="fa-solid fa-location-dot"></i> <span data-local></span> · Entregamos em Palmares-PE.</p></div>
-<div><h4>Navegue</h4><a href="#quem-somos">Quem Somos</a><a href="#produtos">Produtos</a><a href="#modelos">Modelos</a><a href="#clientes">Clientes</a></div></div>
-<p class="copy">© 2026 Doce Lembrança Personalizados. Todos os direitos reservados.</p></footer>
-<div class="flut"><a data-ig class="ig" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a data-wa class="wa" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a></div>
-<div id="fundo"></div>
-<aside id="gaveta" aria-label="Carrinho"><div class="gh"><h2>Seu carrinho</h2><button class="ic" id="fechar" aria-label="Fechar">✕</button></div>
-<div id="itens"></div>
-<div id="fim" hidden><p class="total">Total de itens: <b id="tUn">0</b> · <span id="tVal"></span></p>
-<label>Seu nome *<input id="nome" placeholder="Ex.: Maria Silva"></label>
-<label>Observações / personalização (opcional)<textarea id="obs" rows="3" placeholder="Fotos, nomes, datas, data desejada…"></textarea></label>
-<button class="btn full" id="enviar"><i class="fa-brands fa-whatsapp"></i> Finalizar pedido pelo WhatsApp</button>
-<small>O WhatsApp abre com a mensagem pronta; você confere e toca em enviar.</small></div></aside>
-<script src="js/config.js"></script><script src="js/produtos.js"></script><script src="js/app.js"></script></body></html>
+
+<footer>
+  <div class="container">© <span id="ano"></span> Doce Lembrança. Todos os direitos reservados.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
